@@ -27,12 +27,12 @@ func (s *Server) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
 // Init is init method
 func (s *Server) Init() {
 	log.Println("Init method")
-	s.mux.HandleFunc("/customers.getByID", s.handleGetCustomerByID)
+	s.mux.HandleFunc("/customers.getById", s.handleGetCustomerByID)
 	s.mux.HandleFunc("/customers.getAll", s.handleGetAllCustomers)
 	s.mux.HandleFunc("/customers.getAllActive", s.handleGetAllActiveCustomers)
-	s.mux.HandleFunc("/customers.blockByID", s.handleBlockByID)
-	s.mux.HandleFunc("/customers.unblockByID", s.handleUnBlockByID)
-	s.mux.HandleFunc("/customers.removeByID", s.handleDelete)
+	s.mux.HandleFunc("/customers.blockById", s.handleBlockByID)
+	s.mux.HandleFunc("/customers.unblockById", s.handleUnBlockByID)
+	s.mux.HandleFunc("/customers.removeById", s.handleDelete)
 	s.mux.HandleFunc("/customers.save", s.handleSave)
 }
 
