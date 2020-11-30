@@ -20,7 +20,7 @@ func main() {
 	}
 }
 
-func execute(server string, host string, dsn string) (err error) {
+func execute(host string, port string, dsn string) (err error) {
 	db, err := sql.Open("pgx", dsn)
 	if err != nil {
 		return err
@@ -40,7 +40,7 @@ func execute(server string, host string, dsn string) (err error) {
 	serverHandler.Init()
 
 	srv := &http.Server{
-		Addr:    net.JoinHostPort(server, port),
+		Addr:    net.JoinHostPort(host, port),
 		Handler: serverHandler,
 	}
 	return srv.ListenAndServe()
